@@ -16,15 +16,19 @@ function generatePassword(length, useUppercase, useNumbers, useSymbols) {
     return password;
 }
 
-document.getElementById("generate-btn").addEventListener("click", function() {
-    const length = parseInt(document.getElementById("length").value);
+document.getElementById("generate-btn").addEventListener("click", function () {
+    const length = parseInt(document.getElementById("length").value); // Vom Eingabefeld
     const useUppercase = document.getElementById("uppercase").checked;
     const useNumbers = document.getElementById("numbers").checked;
     const useSymbols = document.getElementById("symbols").checked;
 
     const password = generatePassword(length, useUppercase, useNumbers, useSymbols);
     document.getElementById("output").value = password;
+
+    // Stärke des Passworts bewerten (falls implementiert)
+    evaluatePasswordStrength(password);
 });
+
 
 document.getElementById("copy-btn").addEventListener("click", async function () {
     const passwordField = document.getElementById("output");
@@ -87,3 +91,18 @@ document.getElementById("generate-btn").addEventListener("click", function () {
     evaluatePasswordStrength(password);
 });
 
+const slider = document.getElementById("length-slider");
+const sliderValue = document.getElementById("slider-length-value");
+const inputField = document.getElementById("length");
+
+// Synchronisiere Slider mit Eingabefeld
+slider.addEventListener("input", function () {
+    sliderValue.textContent = slider.value; // Zeige den Slider-Wert an
+    inputField.value = slider.value; // Aktualisiere das Eingabefeld
+});
+
+// Synchronisiere Eingabefeld mit Slider
+inputField.addEventListener("input", function () {
+    slider.value = inputField.value; // Aktualisiere den Slider-Wert
+    sliderValue.textContent = inputField.value; // Zeige den neuen Wert an
+});
