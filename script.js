@@ -4,7 +4,7 @@ const inputField = document.getElementById("length");
 
 // Synchronisiere den Slider-Wert mit dem Eingabefeld
 slider.addEventListener("input", function () {
-    inputField.value = slider.value; // Aktualisiert das Eingabefeld basierend auf dem Slider-Wert
+    inputField.value = slider.value;
 });
 
 // Generiere Passwort basierend auf dem Slider-Wert
