@@ -106,7 +106,8 @@ label {
     color: #555;
     margin-top: 5px;
   }
-  /* Schieberegler-Stil */
+  
+/* Schieberegler-Stil */
 .slider-container {
   display: flex;
   align-items: center;

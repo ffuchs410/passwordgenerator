@@ -1,13 +1,37 @@
+// Hole den Schieberegler und das Element für den angezeigten Wert
+const slider = document.getElementById("length-slider");
+const sliderValue = document.getElementById("slider-length-value");
+
+// Aktualisiere den angezeigten Wert des Sliders
+slider.addEventListener("input", function () {
+    sliderValue.textContent = slider.value; // Aktualisiert die Anzeige des Slider-Werts
+});
+
+// Generiere Passwort basierend auf Slider-Wert
+document.getElementById("generate-btn").addEventListener("click", function () {
+    const length = parseInt(slider.value); // Wert direkt vom Slider
+    const useUppercase = document.getElementById("uppercase").checked; // Checkbox für Großbuchstaben
+    const useNumbers = document.getElementById("numbers").checked; // Checkbox für Zahlen
+    const useSymbols = document.getElementById("symbols").checked; // Checkbox für Sonderzeichen
+
+    const password = generatePassword(length, useUppercase, useNumbers, useSymbols); // Passwort generieren
+    document.getElementById("output").value = password; // Zeige das generierte Passwort an
+
+    // Stärke des Passworts bewerten (falls implementiert)
+    evaluatePasswordStrength(password);
+});
+
+// Funktion: Passwort generieren
 function generatePassword(length, useUppercase, useNumbers, useSymbols) {
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numbers = "0123456789";
-    const symbols = "!@$%&*()_+-=[]{}|;:',.<>?";
+    const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?";
     let charset = lowercase;
 
-    if (useUppercase) charset += uppercase;
-    if (useNumbers) charset += numbers;
-    if (useSymbols) charset += symbols;
+    if (useUppercase) charset += uppercase; // Füge Großbuchstaben hinzu
+    if (useNumbers) charset += numbers; // Füge Zahlen hinzu
+    if (useSymbols) charset += symbols; // Füge Sonderzeichen hinzu
 
     let password = "";
     for (let i = 0; i < length; i++) {
@@ -16,35 +40,7 @@ function generatePassword(length, useUppercase, useNumbers, useSymbols) {
     return password;
 }
 
-document.getElementById("generate-btn").addEventListener("click", function () {
-    const length = parseInt(document.getElementById("length").value); // Vom Eingabefeld
-    const useUppercase = document.getElementById("uppercase").checked;
-    const useNumbers = document.getElementById("numbers").checked;
-    const useSymbols = document.getElementById("symbols").checked;
-
-    const password = generatePassword(length, useUppercase, useNumbers, useSymbols);
-    document.getElementById("output").value = password;
-
-    // Stärke des Passworts bewerten (falls implementiert)
-    evaluatePasswordStrength(password);
-});
-
-
-document.getElementById("copy-btn").addEventListener("click", async function () {
-    const passwordField = document.getElementById("output");
-    if (passwordField.value) {
-        try {
-            // Passwort in die Zwischenablage kopieren
-            await navigator.clipboard.writeText(passwordField.value);
-            alert("Passwort wurde erfolgreich kopiert!");
-        } catch (err) {
-            alert("Fehler beim Kopieren: " + err);
-        }
-    } else {
-        alert("Kein Passwort zum Kopieren vorhanden!");
-    }
-});
-
+// Funktion: Passwortstärke bewerten (falls implementiert)
 function evaluatePasswordStrength(password) {
     let strength = 0;
 
@@ -54,10 +50,10 @@ function evaluatePasswordStrength(password) {
     if (/[0-9]/.test(password)) strength++; // Zahlen
     if (/[\W_]/.test(password)) strength++; // Sonderzeichen
 
-    // Stärke und Balken anpassen
     const strengthBar = document.getElementById("strength-bar");
     const strengthText = document.getElementById("strength-text").querySelector("span");
 
+    // Stärke anpassen
     if (strength === 0) {
         strengthBar.style.width = "0%";
         strengthBar.style.backgroundColor = "red";
@@ -76,33 +72,3 @@ function evaluatePasswordStrength(password) {
         strengthText.textContent = "Stark";
     }
 }
-
-// Event-Listener erweitern
-document.getElementById("generate-btn").addEventListener("click", function () {
-    const length = parseInt(document.getElementById("length").value);
-    const useUppercase = document.getElementById("uppercase").checked;
-    const useNumbers = document.getElementById("numbers").checked;
-    const useSymbols = document.getElementById("symbols").checked;
-
-    const password = generatePassword(length, useUppercase, useNumbers, useSymbols);
-    document.getElementById("output").value = password;
-
-    // Stärke des Passworts bewerten
-    evaluatePasswordStrength(password);
-});
-
-const slider = document.getElementById("length-slider");
-const sliderValue = document.getElementById("slider-length-value");
-const inputField = document.getElementById("length");
-
-// Synchronisiere Slider mit Eingabefeld
-slider.addEventListener("input", function () {
-    sliderValue.textContent = slider.value; // Zeige den Slider-Wert an
-    inputField.value = slider.value; // Aktualisiere das Eingabefeld
-});
-
-// Synchronisiere Eingabefeld mit Slider
-inputField.addEventListener("input", function () {
-    slider.value = inputField.value; // Aktualisiere den Slider-Wert
-    sliderValue.textContent = inputField.value; // Zeige den neuen Wert an
-});
