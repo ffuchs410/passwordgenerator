@@ -17,7 +17,7 @@ function generatePassword(length, useUppercase, useNumbers, useSymbols) {
 }
 
 document.getElementById("generate-btn").addEventListener("click", function() {
-    const length = parseInt(document.getElementById("lenght").value);
+    const length = parseInt(document.getElementById("length").value);
     const useUppercase = document.getElementById("uppercase").checked;
     const useNumbers = document.getElementById("numbers").checked;
     const useSymbols = document.getElementById("symbols").checked;
