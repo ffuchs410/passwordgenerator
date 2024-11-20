@@ -81,4 +81,29 @@ label {
     flex: 1; /* Nimmt den restlichen Platz in der Mitte ein */
     max-width: 400px; /* Maximale Breite des Generators */
   }
+  /* Container für den Stärke-Balken */
+#strength-meter {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0; /* Hellgrauer Hintergrund */
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Der Balken selbst */
+  #strength-bar {
+    height: 100%;
+    width: 0%; /* Startet leer */
+    background-color: red; /* Schwach: Rot */
+    transition: width 0.3s, background-color 0.3s; /* Weiche Übergänge */
+  }
+  
+  /* Text unterhalb des Balkens */
+  #strength-text {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+  }
   
