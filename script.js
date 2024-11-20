@@ -1,15 +1,15 @@
-// Hole den Schieberegler und das Element für den angezeigten Wert
+// Hole den Schieberegler und das Eingabefeld für die Passwortlänge
 const slider = document.getElementById("length-slider");
-const sliderValue = document.getElementById("slider-length-value");
+const inputField = document.getElementById("length");
 
-// Aktualisiere den angezeigten Wert des Sliders
+// Synchronisiere den Slider-Wert mit dem Eingabefeld
 slider.addEventListener("input", function () {
-    sliderValue.textContent = slider.value; // Aktualisiert die Anzeige des Slider-Werts
+    inputField.value = slider.value; // Aktualisiert das Eingabefeld basierend auf dem Slider-Wert
 });
 
-// Generiere Passwort basierend auf Slider-Wert
+// Generiere Passwort basierend auf dem Slider-Wert
 document.getElementById("generate-btn").addEventListener("click", function () {
-    const length = parseInt(slider.value); // Wert direkt vom Slider
+    const length = parseInt(slider.value); // Passwortlänge aus dem Slider
     const useUppercase = document.getElementById("uppercase").checked; // Checkbox für Großbuchstaben
     const useNumbers = document.getElementById("numbers").checked; // Checkbox für Zahlen
     const useSymbols = document.getElementById("symbols").checked; // Checkbox für Sonderzeichen
