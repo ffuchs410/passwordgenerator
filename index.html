@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Container für Werbung und Generator -->
+    <div class="ad-container">
+        <!-- Linke Werbung -->
+        <div class="ad ad-left">
+            <p>Werbung</p>
+        </div>
+        <!-- Passwortgenerator -->
+        <div class="generator-container">
+            <div class="container">
+                <h1>Password Generator</h1>
+                <label for="length">Passwortlänge:</label>
+                <input type="number" id="length" value="12" min="8" max="20">
+                <div>
+                    <label><input type="checkbox" id="uppercase"> Grossbuchstaben</label>
+                    <label><input type="checkbox" id="numbers"> Zahlen</label>
+                    <label><input type="checkbox" id="symbols"> Sonderzeichen</label>
+                </div>
+                <button id="generate-btn"> Passwort generieren</button>
+                <input type="text" id="output" readonly>
+                <button id="copy-btn">Passwort kopieren</button>
+                <p id="password-strength">Passwortstärke: <span>Schwach</span></p>
+            </div>
+        </div>
+        <!-- Rechte Werbung -->
+        <div class="ad ad-right">
+            <p>Werbung</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NS016KE70"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8NS016KE70');
+</script>
+</body>
+</html>
+

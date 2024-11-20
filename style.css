@@ -1,0 +1,84 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+input, button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #555555;
+}
+
+/* Layout-Container für Generator und Werbung */
+.ad-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* Abstand zwischen den Spalten */
+    padding: 20px;
+  }
+  
+  /* Werbung links und rechts */
+  .ad {
+    width: 150px; /* Breite der Werbefläche */
+    height: 300px; /* Höhe der Werbefläche */
+    background-color: #f0f0f0; /* Heller Hintergrund als Platzhalter */
+    border: 1px dashed #cccccc; /* Gepunktete Rahmen für Platzhalter */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .ad p {
+    font-size: 14px;
+    color: #555555; /* Textfarbe */
+  }
+  
+  /* Generator in der Mitte */
+  .generator-container {
+    flex: 1; /* Nimmt den restlichen Platz in der Mitte ein */
+    max-width: 400px; /* Maximale Breite des Generators */
+  }
+  
