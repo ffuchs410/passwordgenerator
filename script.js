@@ -66,9 +66,13 @@ function evaluatePasswordStrength(password) {
         strengthBar.style.width = "66%";
         strengthBar.style.backgroundColor = "yellow";
         strengthText.textContent = "Mittel";
-    } else if (strength >= 3) {
+    } else if (strength === 3) {
         strengthBar.style.width = "100%";
         strengthBar.style.backgroundColor = "green";
         strengthText.textContent = "Stark";
+    } else if (strenght === 4) {
+        strengthBar.style.width = "133%";
+        strengthBar.style.bachkgroundColor = "pink";
+        strengthText.textContent = "Extrem stark!!!"
     }
 }
